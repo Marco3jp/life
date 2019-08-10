@@ -21,6 +21,5 @@ export default class Action {
                 this.actionDb.setItem(action.id.toString(), action)
             })
         })
-
     }
 }
