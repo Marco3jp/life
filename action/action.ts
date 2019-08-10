@@ -17,7 +17,7 @@ export default class Action {
         }).then(raw => {
             return JSON.parse(raw, parseJsonFunction)
         }).then(result => {
-            result.items.foreach((action: ActionModel) => {
+            result.actions.foreach((action: ActionModel) => {
                 this.actionDb.setItem(action.id.toString(), action)
             })
         })
