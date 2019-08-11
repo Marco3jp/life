@@ -29,14 +29,12 @@ class Life {
      * ゲームのバージョンやリソースのバージョンをセッションストレージに記録
      * マイグレーションやキャッシュのチェックなどに使う
      */
-    static storeOptions(option) {
-        if (option !== undefined) {
-            if (option.version !== undefined) {
-                sessionStorage.setItem("version", option.version);
-            }
-            if (option.resourceVersion !== undefined) {
-                sessionStorage.setItem("resourceVersion", option.resourceVersion);
-            }
+    static storeOptions(option: Option) {
+        if (option.version !== undefined) {
+            sessionStorage.setItem("version", option.version);
+        }
+        if (option.resourceVersion !== undefined) {
+            sessionStorage.setItem("resourceVersion", option.resourceVersion);
         }
     }
 
