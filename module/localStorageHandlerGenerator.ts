@@ -1,18 +1,33 @@
-export function generateLocalStorageHandler(prefix, key): ProxyHandler<any> {
-    const valueName = prefix + key;
+import {HandleDefineder} from "../model/handleDefineder";
+
+export function generateLocalStorageHandler(prefix, defines: Array<HandleDefineder>): ProxyHandler<any> {
     return {
-        get: (target, name) => {
-            const value = localStorage.getItem(valueName);
-            return value !== null ? value : undefined;
+        get: (target, name): string | undefined => {
+            if (defines.some(define => {
+                return define.key === name
+            })) {
+                const value = localStorage.getItem(prefix + name.toString());
+                return value !== null ? value : undefined;
+            }
         },
         set: (obj, prop, value: string) => {
-            try {
-                localStorage.setItem(valueName, value);
-            } catch (e) {
-                // safari in private mode or storage is full.
-                return false;
+            const index = defines.findIndex(define => {
+                return define.key === name
+            });
+            if (index !== -1) {
+                if (typeof defines[index].validator !== "undefined") {
+                    // @ts-ignore, checked undefined.
+                    value = defines[index].validator(value);
+                }
+                try {
+                    localStorage.setItem(prop.toString(), value);
+                } catch (e) {
+                    // safari in private mode or storage is full.
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }
