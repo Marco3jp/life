@@ -1,15 +1,18 @@
 import localForage from "localforage";
 import {Action as ActionModel} from "../model/action"
-import {parseJsonFunction} from "../module/parseJsonFunction";
+import {parseJsonFunction} from "./util/parseJsonFunction";
 import ViewScript from "../model/viewScript";
+import Params from "../params/params";
 
 export default class Action {
     private actionDb: LocalForage;
+    private params: Params;
 
-    constructor() {
+    constructor(params: Params) {
         this.actionDb = localForage.createInstance({
             name: "action"
-        })
+        });
+        this.params = params;
     }
 
     load(url: string) {
@@ -24,10 +27,19 @@ export default class Action {
         })
     }
 
-    getFeasibleActions(): Array<ActionModel> {
-
+    getFeasibleActions(): Promise<Array<ActionModel>> {
+        let result: Array<ActionModel> = [];
+        return this.actionDb.iterate((value: ActionModel, key, iterationNumber) => {
+            if (value.require(this.params)) {
+                result.push(value);
+            }
+        }).then(() => {
+            return result;
+        })
     }
 
+
     act(id): ViewScript {
+
     }
 }
