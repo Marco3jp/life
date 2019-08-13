@@ -1,6 +1,7 @@
 import localForage from "localforage";
 import {Action as ActionModel} from "../model/action"
 import {parseJsonFunction} from "../module/parseJsonFunction";
+import ViewScript from "../model/viewScript";
 
 export default class Action {
     private actionDb: LocalForage;
@@ -21,5 +22,12 @@ export default class Action {
                 this.actionDb.setItem(action.id.toString(), action)
             })
         })
+    }
+
+    getFeasibleActions(): Array<ActionModel> {
+
+    }
+
+    act(id): ViewScript {
     }
 }

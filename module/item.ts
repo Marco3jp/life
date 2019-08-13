@@ -1,6 +1,7 @@
 import localForage from "localforage";
 import {Item as ItemModel} from "../model/item"
 import {parseJsonFunction} from "../module/parseJsonFunction";
+import ViewScript from "../model/viewScript";
 
 export default class Item {
     private itemDb: LocalForage;
@@ -21,6 +22,17 @@ export default class Item {
                 this.itemDb.setItem(item.id.toString(), item)
             })
         })
+    }
+
+    getItemInfo(id): ItemModel {
+
+    }
+
+    getMyItems(): Array<ItemModel> {
+
+    }
+
+    use(id): ViewScript {
 
     }
 }
