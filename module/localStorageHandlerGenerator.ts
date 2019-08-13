@@ -7,7 +7,7 @@ export function generateLocalStorageHandler(prefix, key): ProxyHandler<any> {
         },
         set: (obj, prop, value) => {
             try {
-                localStorage.setItem(valueName, value);
+                localStorage.setItem(valueName, typeof value !== "string" ? value.toString() : value);
             } catch (e) {
                 // safari in private mode or storage is full.
                 return false;
