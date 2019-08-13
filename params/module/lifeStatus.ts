@@ -1,9 +1,9 @@
 import {generateLocalStorageHandler} from "../../module/localStorageHandlerGenerator";
-import {defaultLifeStatus} from "../default/lifeStatus";
+import {HandleDefineder} from "../../model/handleDefineder";
 
 export default class LifeStatus {
-    constructor() {
+    constructor(lifeStatusList: Array<HandleDefineder>) {
         const prefix = "life_lifeStatus_";
-        return new Proxy({}, generateLocalStorageHandler(prefix, defaultLifeStatus));
+        return new Proxy({}, generateLocalStorageHandler(prefix, lifeStatusList));
     }
 }
