@@ -1,12 +1,12 @@
 import {generateLocalStorageHandler} from "../../module/localStorageHandlerGenerator";
+import {HandleDefineder} from "../../model/handleDefineder";
 
 export default class AbilityStatus {
     strength;
     intelligent;
 
-    constructor() {
+    constructor(abilityStatusList: Array<HandleDefineder>) {
         const prefix = "life_abilityStatus_";
-        this.strength = new Proxy({}, generateLocalStorageHandler(prefix, "strength"));
-        this.intelligent = new Proxy({}, generateLocalStorageHandler(prefix, "intelligent"));
+        return new Proxy({}, generateLocalStorageHandler(prefix, abilityStatusList));
     }
 }
