@@ -1,7 +1,6 @@
 import localForage from "localforage";
 import {Item as ItemModel} from "../model/item"
-import {parseJsonFunction} from "../module/parseJsonFunction";
-import ViewScript from "../model/viewScript";
+import {parseJsonFunction} from "./util/parseJsonFunction";
 
 export default class Item {
     private itemDb: LocalForage;
@@ -24,15 +23,11 @@ export default class Item {
         })
     }
 
-    getItemInfo(id): ItemModel {
-
-    }
-
-    getMyItems(): Array<ItemModel> {
-
-    }
-
-    use(id): ViewScript {
-
+    getItemInfo(id): Promise<ItemModel | undefined> {
+        return this.itemDb.iterate((item: ItemModel) => {
+            if (item.id === id) {
+                return item;
+            }
+        })
     }
 }
