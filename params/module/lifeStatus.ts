@@ -1,4 +1,4 @@
-import {generateLocalStorageHandler} from "../../module/localStorageHandlerGenerator";
+import {generateLocalStorageHandler} from "../../module/util/localStorageHandlerGenerator";
 import {HandleDefineder} from "../../model/handleDefineder";
 
 export default class LifeStatus {
