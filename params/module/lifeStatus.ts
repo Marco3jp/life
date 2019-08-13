@@ -1,6 +1,6 @@
 import {generateLocalStorageHandler} from "../../module/localStorageHandlerGenerator";
 
-class LifeStatus {
+export default class LifeStatus {
     health;
     hanger;
     thirst;
