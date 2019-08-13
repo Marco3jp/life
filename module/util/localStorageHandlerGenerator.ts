@@ -1,4 +1,4 @@
-import {HandleDefineder} from "../model/handleDefineder";
+import {HandleDefineder} from "../../model/handleDefineder";
 
 export function generateLocalStorageHandler(prefix, defines: Array<HandleDefineder>): ProxyHandler<any> {
     return {

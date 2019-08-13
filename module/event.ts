@@ -1,6 +1,6 @@
 import localForage from "localforage";
 import {Event as EventModel} from "../model/event";
-import {parseJsonFunction} from "../module/parseJsonFunction";
+import {parseJsonFunction} from "./util/parseJsonFunction";
 
 export default class _Event {
     private eventDb: LocalForage;
