@@ -1,9 +1,10 @@
-import Item from "./item/item";
-import _Location from "./location/location";
-import Action from "./action/action";
-import _Event from "./event/event";
+import Item from "./module/item";
+import _Location from "./module/location";
+import Action from "./module/action";
+import _Event from "./module/event";
 import {Option} from "./model/option";
 import {ResourceURIList} from "./model/resourceList";
+import Params from "./module/params";
 
 class Life {
     item: Item;

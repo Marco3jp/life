@@ -1,5 +1,5 @@
-import {generateLocalStorageHandler} from "../../util/localStorageHandlerGenerator";
-import {HandleDefineder} from "../../../model/handleDefineder";
+import {generateLocalStorageHandler} from "../util/localStorageHandlerGenerator";
+import {HandleDefineder} from "../../model/handleDefineder";
 
 export default class LifeStatus {
     constructor(lifeStatusList: Array<HandleDefineder>) {
