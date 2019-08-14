@@ -5,5 +5,5 @@ export interface Location {
     id: number
     name: string
     coordinate: Coordinate
-    script: Script
+    script?: Script
 }

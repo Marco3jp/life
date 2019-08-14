@@ -5,5 +5,5 @@ export interface Action {
     name: string
     require: Function // if return true, you can use it.
     effect: Function
-    script: Script
+    script?: Script
 }
