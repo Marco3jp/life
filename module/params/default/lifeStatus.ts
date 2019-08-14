@@ -1,4 +1,4 @@
-import {HandleDefineder} from "../../model/handleDefineder";
+import {HandleDefineder} from "../../../model/handleDefineder";
 
 export let defaultLifeStatus: Array<HandleDefineder> = [{
     key: "health",

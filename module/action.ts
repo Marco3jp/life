@@ -2,7 +2,7 @@ import localForage from "localforage";
 import {Action as ActionModel} from "../model/action"
 import {parseJsonFunction} from "./util/parseJsonFunction";
 import ViewScript from "../model/viewScript";
-import Params from "../params/params";
+import Params from "./params";
 
 export default class Action {
     private actionDb: LocalForage;
