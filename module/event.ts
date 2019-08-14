@@ -1,14 +1,19 @@
 import localForage from "localforage";
 import {Event as EventModel} from "../model/event";
 import {parseJsonFunction} from "./util/parseJsonFunction";
+import Params from "./params";
+import ViewScript from "../model/viewScript";
 
 export default class _Event {
     private eventDb: LocalForage;
+    private currentlyEvents: Array<EventModel>;
+    params: Params;
 
-    constructor() {
+    constructor(params) {
         this.eventDb = localForage.createInstance({
             name: "event"
-        })
+        });
+        this.params = params;
     }
 
     load(url: string) {
@@ -21,5 +26,15 @@ export default class _Event {
                 this.eventDb.setItem(event.id.toString(), event)
             })
         })
+    }
+
+    isEventing(): boolean {
+        // TODO
+        return false;
+    }
+
+    proceedCurrentlyEvent(): ViewScript {
+        // TODO
+        return {message: "mock"};
     }
 }

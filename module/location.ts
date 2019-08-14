@@ -1,5 +1,6 @@
 import localForage from "localforage";
 import {Location as LocationModel} from "../model/location";
+import viewScript from "../model/viewScript";
 
 export default class _Location {
     private locationDb: LocalForage;
@@ -18,5 +19,21 @@ export default class _Location {
                 this.locationDb.setItem(location.id.toString(), location);
             })
         })
+
+    }
+
+    getNowLocation(): LocationModel {
+        // TODO
+        return {coordinate: {x: 0, y: 0}, id: 0, name: "", script: undefined}
+    }
+
+    getMovableLocations(): Array<LocationModel> {
+        // TODO
+        return []
+    }
+
+    move(location: LocationModel): viewScript {
+        // TODO
+        return {message: "mock"}
     }
 }

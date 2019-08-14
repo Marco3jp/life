@@ -39,7 +39,8 @@ export default class Action {
     }
 
 
-    act(id): ViewScript {
-
+    act(action: ActionModel): ViewScript {
+        // TODO
+        return {message: "mock"}
     }
 }
