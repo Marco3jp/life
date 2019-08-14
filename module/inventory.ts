@@ -54,7 +54,7 @@ export default class Inventory {
         }
     }
 
-    saveInventory() {
+    private saveInventory() {
         localStorage.setItem("life_inventory", JSON.stringify(this.inventory, stringifyFunction));
     }
 }
