@@ -73,5 +73,7 @@ export default class History {
                 this.locationHistory.push(<Location>state);
                 return;
         }
+
+        this.saveHistory(key);
     }
 }
