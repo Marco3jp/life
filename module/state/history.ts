@@ -50,6 +50,17 @@ export default class History {
         localStorage.setItem(this.getStorageKey(key), JSON.stringify(history, stringifyFunction));
     }
 
+    getLatestState(key: HistoryEnum): any {
+        switch (key) {
+            case HistoryEnum.ACTION:
+                return this.actionHistory[this.actionHistory.length - 1];
+            case HistoryEnum.EVENT:
+                return this.eventHistory[this.eventHistory.length - 1];
+            case HistoryEnum.LOCATION:
+                return this.locationHistory[this.locationHistory.length - 1];
+        }
+    }
+
     getAllState(key: HistoryEnum): Array<any> {
         switch (key) {
             case HistoryEnum.ACTION:
