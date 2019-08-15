@@ -7,6 +7,7 @@ import {ResourceURIList} from "./model/resourceList";
 import Params from "./module/params";
 import Inventory from "./module/state/inventory";
 import State from "./module/state";
+import Setting from "./module/setting";
 
 export default class Life {
     item: Item;
@@ -14,12 +15,13 @@ export default class Life {
     action: Action;
     event: _Event;
     state: State;
+    setting: Setting;
 
     constructor(option?: Option) {
         const params = new Params(this);
 
         this.item = new Item();
-        this.location = new _Location();
+        this.location = new _Location(params);
         this.action = new Action(params);
         this.event = new _Event(params);
         this.state = new State(params);
@@ -29,6 +31,10 @@ export default class Life {
             if (option.resourceList !== undefined) {
                 this.loadResources(option.resourceList);
             }
+
+            this.setting = new Setting(option.gameSetting);
+        } else {
+            this.setting = new Setting();
         }
     }
 
