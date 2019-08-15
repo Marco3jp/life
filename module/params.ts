@@ -1,17 +1,20 @@
-import LifeStatus from "./params/lifeStatus";
-import {defaultLifeStatus} from "./params/default/lifeStatus";
-import AbilityStatus from "./params/abilityStatus";
-import {defaultAbilityStatus} from "./params/default/abilityStatus";
-import Inventory from "./inventory";
+import Life from "../index";
+import Item from "./item";
+import _Location from "./location";
+import Action from "./action";
+import _Event from "./event";
+import State from "./state";
 
 export default class Params {
-    lifeStatus: LifeStatus;
-    abilityStatus: AbilityStatus;
-    inventory: Inventory;
+    location: _Location;
+    action: Action;
+    event: _Event;
+    state: State;
 
-    constructor() {
-        this.lifeStatus = new LifeStatus(defaultLifeStatus);
-        this.abilityStatus = new AbilityStatus(defaultAbilityStatus);
-        this.inventory = new Inventory(this);
+    constructor(life: Life) {
+        this.action = life.action;
+        this.event = life.event;
+        this.state = life.state;
+        this.location = life.location;
     }
 }
