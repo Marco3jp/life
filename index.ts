@@ -5,23 +5,24 @@ import _Event from "./module/event";
 import {Option} from "./model/option";
 import {ResourceURIList} from "./model/resourceList";
 import Params from "./module/params";
-import Inventory from "./module/inventory";
+import Inventory from "./module/state/inventory";
+import State from "./module/state";
 
-class Life {
+export default class Life {
     item: Item;
     location: _Location;
     action: Action;
     event: _Event;
-    inventory: Inventory;
+    state: State;
 
     constructor(option?: Option) {
-        const params = new Params();
+        const params = new Params(this);
 
         this.item = new Item();
         this.location = new _Location();
         this.action = new Action(params);
         this.event = new _Event(params);
-        this.inventory = new Inventory(params);
+        this.state = new State(params);
 
         if (option !== undefined) {
             Life.storeOptions(option);
