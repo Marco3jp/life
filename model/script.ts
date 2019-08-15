@@ -4,4 +4,5 @@ export interface Script {
     texts?: object
     operations?: object
     viewScript?: ViewScript
+    createViewScript?: Function
 }
