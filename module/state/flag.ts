@@ -1,4 +1,4 @@
-export default class FlagManager {
+export default class Flag {
     flagStore: Object;
 
     constructor() {
