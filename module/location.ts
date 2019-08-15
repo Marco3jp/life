@@ -1,6 +1,8 @@
 import localForage from "localforage";
 import {Location as LocationModel} from "../model/location";
 import viewScript from "../model/viewScript";
+import {HistoryEnum} from "../model/enum/historyEnum";
+import {parseJsonFunction} from "./util/parseJsonFunction";
 
 export default class _Location {
     private locationDb: LocalForage;
@@ -13,7 +15,9 @@ export default class _Location {
 
     load(url: string) {
         fetch(url).then((response) => {
-            return response.json();
+            return response.text()
+        }).then(raw => {
+            return JSON.parse(raw, parseJsonFunction)
         }).then(result => {
             result.locations.foreach((location: LocationModel) => {
                 this.locationDb.setItem(location.id.toString(), location);
