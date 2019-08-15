@@ -1,9 +1,9 @@
-import {HistoryEnum, historyEnumToString} from "../model/enum/historyEnum";
-import {Action} from "../model/action";
-import {Event} from "../model/event";
-import {Location} from "../model/location";
-import {parseJsonFunction} from "./util/parseJsonFunction";
-import {stringifyFunction} from "./util/stringifyFunction";
+import {HistoryEnum, historyEnumToString} from "../../model/enum/historyEnum";
+import {Action} from "../../model/action";
+import {Event} from "../../model/event";
+import {Location} from "../../model/location";
+import {parseJsonFunction} from "../util/parseJsonFunction";
+import {stringifyFunction} from "../util/stringifyFunction";
 
 // TODO: 次第に肥大化していくので設計レベルの問題がありそう
 //  特にいちいちJSON.Stringifyしてるあたりがネックになる可能性がある

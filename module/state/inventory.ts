@@ -1,9 +1,9 @@
-import {Item as ItemModel} from "../model/item";
-import ViewScript from "../model/viewScript";
-import {InventoryRecord} from "../model/inventoryRecord";
-import Params from "./params";
-import {parseJsonFunction} from "./util/parseJsonFunction";
-import {stringifyFunction} from "./util/stringifyFunction";
+import {Item as ItemModel} from "../../model/item";
+import ViewScript from "../../model/viewScript";
+import {InventoryRecord} from "../../model/inventoryRecord";
+import Params from "../params";
+import {parseJsonFunction} from "../util/parseJsonFunction";
+import {stringifyFunction} from "../util/stringifyFunction";
 
 export default class Inventory {
     inventory: Array<InventoryRecord>;
