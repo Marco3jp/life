@@ -5,11 +5,12 @@ import Params from "../params";
 import {parseJsonFunction} from "../util/parseJsonFunction";
 import {stringifyFunction} from "../util/stringifyFunction";
 
+// TODO: こいつ自身にItemを持たせず、paramsを必要としないように修正する
 export default class Inventory {
     inventory: Array<InventoryRecord>;
     params: Params;
 
-    constructor(params) {
+    constructor(params: Params) {
         const saveData = localStorage.getItem("life_inventory");
         this.params = params;
         if (saveData !== null) {
