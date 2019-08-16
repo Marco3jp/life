@@ -17,7 +17,7 @@ export default class GameDate {
         }
     }
 
-    now() {
+    now(): number {
         return this.time;
     }
 
@@ -33,27 +33,33 @@ export default class GameDate {
     }
 
     getFullYear() {
-
+        const date = new Date(this.time);
+        return date.getFullYear();
     }
 
     getMonth() {
-
+        const date = new Date(this.time);
+        return date.getMonth();
     }
 
     getDate() {
-
+        const date = new Date(this.time);
+        return date.getDate();
     }
 
     getHours() {
-
+        const date = new Date(this.time);
+        return date.getHours();
     }
 
     getMinutes() {
-
+        const date = new Date(this.time);
+        return date.getMinutes();
     }
 
     getSeconds() {
-
+        const date = new Date(this.time);
+        return date.getSeconds();
     }
 
     private storeDate() {
