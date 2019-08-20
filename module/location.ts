@@ -82,4 +82,13 @@ export default class _Location {
             return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y, target.coordinate.z - from.coordinate.z);
         }
     }
+
+    static getBaseDistance(): number {
+        const result = sessionStorage.getItem("baseDistance");
+        if (result === null || typeof result === "undefined" || result === "") {
+            return 1;
+        } else {
+            return parseInt(result);
+        }
+    }
 }
