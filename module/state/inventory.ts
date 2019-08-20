@@ -49,6 +49,7 @@ export default class Inventory {
             this.inventory[index].number--;
             this.inventory[index].item.effect(this.params);
             this.saveInventory();
+            // TODO: アイテム使用時に適切なViewScriptを返す
             return {message: "success"};
         } else {
             return {message: "error"};
