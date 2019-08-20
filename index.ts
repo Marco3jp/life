@@ -55,7 +55,7 @@ export default class Life {
             sessionStorage.setItem("prefix", setting.store.prefix);
         }
         if (typeof setting.baseDistance !== "undefined") {
-            sessionStorage.setItem("prefix", setting.baseDistance.toString());
+            sessionStorage.setItem("baseDistance", setting.baseDistance.toString());
         }
     }
 
