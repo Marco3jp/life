@@ -15,7 +15,6 @@ export default class Life {
     action: Action;
     event: _Event;
     state: State;
-    setting: Setting;
 
     constructor(option?: Option) {
         const params = new Params(this);
@@ -32,9 +31,9 @@ export default class Life {
                 this.loadResources(option.resourceList);
             }
 
-            this.setting = new Setting(option.gameSetting);
+            Life.storeSettings(new Setting(option.gameSetting));
         } else {
-            this.setting = new Setting();
+            Life.storeSettings(new Setting());
         }
     }
 
