@@ -30,8 +30,7 @@ export default class _Location {
     }
 
     getNowLocation(): LocationModel {
-        // TODO
-        return {coordinate: {x: 0, y: 0}, id: 0, name: "", script: undefined}
+        return this.params.state.history.getLatestState(HistoryEnum.LOCATION);
     }
 
     getMovableLocations(): Array<LocationModel> {
