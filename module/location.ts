@@ -50,7 +50,14 @@ export default class _Location {
     }
 
     move(location: LocationModel): viewScript {
-        // TODO
-        return {message: "mock"}
+        this.params.state.history.pushState(HistoryEnum.LOCATION, location);
+
+        if (typeof location.script !== "undefined" && typeof location.script.createViewScript !== "undefined") {
+            return location.script.createViewScript(this.params);
+        } else if (typeof location.script !== "undefined" && typeof location.script.viewScript !== "undefined") {
+            return location.script.viewScript;
+        } else {
+            return {message: ""}
+        }
     }
 }
