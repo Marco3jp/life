@@ -51,6 +51,15 @@ export default class Life {
         }
     }
 
+    static storeSettings(setting: Setting) {
+        if (typeof setting.store.prefix !== "undefined") {
+            sessionStorage.setItem("prefix", setting.store.prefix);
+        }
+        if (typeof setting.baseDistance !== "undefined") {
+            sessionStorage.setItem("prefix", setting.baseDistance.toString());
+        }
+    }
+
     loadResources(resourceList: ResourceURIList) {
         if (resourceList.itemURIList !== undefined) {
             resourceList.itemURIList.forEach((itemURI: string) => {
