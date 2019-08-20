@@ -25,9 +25,9 @@ export default class Life {
         this.event = new _Event(params);
         this.state = new State(params);
 
-        if (option !== undefined) {
+        if (typeof option !== "undefined") {
             Life.storeOptions(option);
-            if (option.resourceList !== undefined) {
+            if (typeof option.resourceList !== "undefined") {
                 this.loadResources(option.resourceList);
             }
 
@@ -42,10 +42,10 @@ export default class Life {
      * マイグレーションやキャッシュのチェックなどに使う
      */
     static storeOptions(option: Option) {
-        if (option.version !== undefined) {
+        if (typeof option.version !== "undefined") {
             sessionStorage.setItem("version", option.version);
         }
-        if (option.resourceVersion !== undefined) {
+        if (typeof option.resourceVersion !== "undefined") {
             sessionStorage.setItem("resourceVersion", option.resourceVersion);
         }
     }
@@ -60,22 +60,22 @@ export default class Life {
     }
 
     loadResources(resourceList: ResourceURIList) {
-        if (resourceList.itemURIList !== undefined) {
+        if (typeof resourceList.itemURIList !== "undefined") {
             resourceList.itemURIList.forEach((itemURI: string) => {
                 this.item.load(itemURI);
             })
         }
-        if (resourceList.locationURIList !== undefined) {
+        if (typeof resourceList.locationURIList !== "undefined") {
             resourceList.locationURIList.forEach((locationURI: string) => {
                 this.location.load(locationURI);
             })
         }
-        if (resourceList.actionURIList !== undefined) {
+        if (typeof resourceList.actionURIList !== "undefined") {
             resourceList.actionURIList.forEach((actionURI: string) => {
                 this.action.load(actionURI);
             })
         }
-        if (resourceList.eventURIList !== undefined) {
+        if (typeof resourceList.eventURIList !== "undefined") {
             resourceList.eventURIList.forEach((eventURI: string) => {
                 this.event.load(eventURI);
             })

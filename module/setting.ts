@@ -5,7 +5,7 @@ export default class Setting {
     baseDistance: number;
 
     constructor(setting?: Setting) {
-        if (setting === undefined) {
+        if (typeof setting === "undefined") {
             Object.assign(this, this.defaultSetting());
         } else {
             let baseSetting = this.defaultSetting();
