@@ -60,4 +60,26 @@ export default class _Location {
             return {message: ""}
         }
     }
+
+    /**
+     * ロケーション間の直線距離を計算する。もしaltitudeがtrueの場合、z軸も用いた計算を行う。
+     * 後にLocationModelがDistanceを持った場合、その値をProxyする形になり、将来的に直線距離の算出は非推奨にする予定(削除予定はない)。
+     */
+    calculateLocationDistance(target: LocationModel, from?: LocationModel, altitude?: boolean): number {
+        if (typeof from === "undefined") {
+            from = this.getCurrentLocation();
+        }
+
+        if (typeof altitude === "undefined" || !altitude) {
+            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y);
+        } else {
+            if (typeof target.coordinate.z === "undefined") {
+                target.coordinate.z = 0;
+            }
+            if (typeof from.coordinate.z === "undefined") {
+                from.coordinate.z = 0;
+            }
+            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y, target.coordinate.z - from.coordinate.z);
+        }
+    }
 }
