@@ -38,9 +38,13 @@ export default class Action {
         })
     }
 
-
     act(action: ActionModel): ViewScript {
-        // TODO
-        return {message: "mock"}
+        if (action.require) {
+            action.effect(this.params);
+            // TODO: 行動時に適切なViewScriptを返す
+            return {message: "success"};
+        } else {
+            return {message: "error"};
+        }
     }
 }
