@@ -33,9 +33,20 @@ export default class _Location {
         return this.params.state.history.getLatestState(HistoryEnum.LOCATION);
     }
 
+    /**
+     * 移動可能なロケーションを返す
+     * 移動可能な場所がない場合空のArrayを返すので、エラーチェックしないと正しく動いてしまって詰んでしまうので注意。
+     */
     getMovableLocations(): Array<LocationModel> {
-        // TODO
-        return []
+        let result: Array<LocationModel> = [];
+
+        this.locationDb.iterate((location: LocationModel) => {
+            if (location.require(this.params)) {
+                result.push(location);
+            }
+        });
+
+        return result
     }
 
     move(location: LocationModel): viewScript {
