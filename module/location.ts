@@ -71,7 +71,7 @@ export default class _Location {
         }
 
         if (typeof altitude === "undefined" || !altitude) {
-            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y);
+            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y) * _Location.getBaseDistance();
         } else {
             if (typeof target.coordinate.z === "undefined") {
                 target.coordinate.z = 0;
@@ -79,7 +79,7 @@ export default class _Location {
             if (typeof from.coordinate.z === "undefined") {
                 from.coordinate.z = 0;
             }
-            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y, target.coordinate.z - from.coordinate.z);
+            return Math.hypot(target.coordinate.x - from.coordinate.x, target.coordinate.y - from.coordinate.y, target.coordinate.z - from.coordinate.z) * _Location.getBaseDistance();
         }
     }
 
