@@ -29,7 +29,7 @@ export default class _Location {
 
     }
 
-    getNowLocation(): LocationModel {
+    getCurrentLocation(): LocationModel {
         return this.params.state.history.getLatestState(HistoryEnum.LOCATION);
     }
 
