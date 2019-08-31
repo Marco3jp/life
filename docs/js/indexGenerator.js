@@ -46,4 +46,4 @@ class IndexGenerator {
     }
 }
 
-const indexGenerator = new IndexGenerator("/life/");
+const indexGenerator = new IndexGenerator("/life");
