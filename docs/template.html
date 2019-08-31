@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>document template</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="js/structure.js" as="script">
+</head>
+<body>
+<div id="wrap-page">
+    <header>
+        <input type="checkbox" id="toggle-sidebar">
+        <label for="toggle-sidebar" id="toggle-sidebar-label"><img></label>
+        <h1 id="document-title">Life Document</h1>
+        <a href="https://github.com/Marco3jp/life"><img id="github-icon"></a>
+    </header>
+
+    <div id="wrap-content">
+        <aside id="index">
+        </aside>
+        <main id="content">
+            <h2>sample</h2>
+            <p><dfn id="sample">sample</dfn>は例示するためのObjectである。このオブジェクトはTemplateの子として持たれることを前提として作られている。</p>
+            <nav>
+                <ol id="content-toc-list"></ol>
+            </nav>
+            <article>
+                <h3 id="sample-constructor">Sample</h3>
+                <ul>
+                    <li>構文: <code>new Sample(option)</code></li>
+                    <li>パラメータ:
+                        <ul>
+                            <li>{undefined | <a href="./type/option">Option</a>} option</li>
+                        </ul>
+                    </li>
+                    <li>説明:
+                        <pre>
+// デフォルト値で動かす場合
+let sample = new Sample();
+// カスタム値で動かす場合
+const option = { userName: "foge man" };
+let customSample = new Sample(option);</pre>
+                        <p>Sampleクラスのコンストラクタ。オプションによって初期値やフラグをセットすることが出来る。オプションの詳細は該当ドキュメントを参照。</p>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h3 id="sample-setFlag">setFlag</h3>
+                <ul>
+                    <li>構文: <code>setFlag(flagName, value)</code></li>
+                    <li>パラメータ:
+                        <ul>
+                            <li>string flagName</li>
+                            <li>{undefined | boolean} value</li>
+                        </ul>
+                    </li>
+                    <li>説明:
+                        <pre>
+// ドキュメント化が終わったフラグを立てる
+sample.setFlag("documented");
+// 実は終わってなかった
+sample.setFlag("documented", false);</pre>
+                        <p>フラグを立てるメソッド。Valueで任意の値を設定できるが、<a href="#sample-removeFlag">removeFlag()</a>を用いてFlagを折ることも出来る(何らかの値をそのままFlagに落としたいときにこちらのメソッドを用いると良い)。
+                        </p>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h3 id="sample-removeFlag">removeFlag</h3>
+                <ul>
+                    <li>構文: <code>removeFlag(flagName)</code></li>
+                    <li>パラメータ:
+                        <ul>
+                            <li>string flagName</li>
+                        </ul>
+                    </li>
+                    <li>説明:
+                        <pre>
+// 新たにドキュメント化する部分ができた
+sample.removeFlag("documented");</pre>
+                        <p>フラグを折るメソッド。</p>
+                    </li>
+                </ul>
+            </article>
+        </main>
+    </div>
+</div>
+<template id="index-item-template">
+    <li class="index-item"></li>
+</template>
+<template id="content-toc-item-template">
+    <li class="content-toc-item"><a></a></li>
+</template>
+<script src="js/tocGenerator.js" type="module"></script>
+<script src="js/indexGenerator.js" type="module"></script>
+</body>
+</html>
