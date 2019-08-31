@@ -1,11 +1,12 @@
 import {structure as siteStructure} from "./structure.js"
 
 class IndexGenerator {
-    constructor() {
+    constructor(basePath) {
+        this.basePath = basePath;
         this.indexParent = document.querySelector("#index");
         this.intexItemTemplate = document.querySelector("#index-item-template").content;
         this.currentHeader = 2;
-        this.currentPath = "/";
+        this.currentPath = this.basePath + "/";
         this.createIndex(siteStructure, this.indexParent);
     }
 
@@ -45,4 +46,4 @@ class IndexGenerator {
     }
 }
 
-const indexGenerator = new IndexGenerator();
+const indexGenerator = new IndexGenerator("/life/");
