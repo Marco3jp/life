@@ -48,9 +48,14 @@ header {
 
 #index {
     padding-top: 20px;
-    max-width: 250px;
-    border-right: 1px solid rgba(66, 66, 66, 1);
+    width: 0;
     overflow: auto;
+    transition: width .5s ease-in-out;
+}
+
+#index.indexed {
+    width: 200px;
+    border-right: 1px solid rgba(66, 66, 66, 1);
 }
 
 #index li, #index h2, #index h3 {

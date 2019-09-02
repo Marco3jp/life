@@ -7,11 +7,17 @@ class IndexGenerator {
         this.intexItemTemplate = document.querySelector("#index-item-template").content;
         this.currentHeader = 2;
         this.currentPath = this.basePath + "/";
-        this.createIndex(siteStructure, this.indexParent);
+        if (this.createIndex(siteStructure, this.indexParent)) {
+            this.indexParent.classList.add("indexed");
+        }
     }
 
     createIndex(structure, currentElement) {
         const thisPath = this.currentPath;
+
+        if (structure.length === 0) {
+            return false;
+        }
 
         for (let i = 0; i < structure.length; i++) {
             let thisElement, unOrderListElement = undefined;
@@ -43,6 +49,8 @@ class IndexGenerator {
             }
             this.currentPath = thisPath;
         }
+
+        return true;
     }
 }
 
