@@ -8,7 +8,7 @@ class IndexGenerator {
         this.currentHeader = 2;
         this.currentPath = this.basePath + "/";
         if (this.createIndex(siteStructure, this.indexParent)) {
-            this.indexParent.classList.add("indexed");
+            document.querySelector(".not-indexed").classList.remove("not-indexed");
         }
     }
 
