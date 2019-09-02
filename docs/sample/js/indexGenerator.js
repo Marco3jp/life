@@ -1,0 +1,1 @@
+/home/marco/dev/yourLife/lib/life/docs/js/indexGenerator.js
