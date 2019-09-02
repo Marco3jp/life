@@ -1,1 +1,1 @@
-/home/marco/dev/yourLife/lib/life/docs/js/tocGenerator.js
+../../js/tocGenerator.js
