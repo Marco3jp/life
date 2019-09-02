@@ -41,6 +41,11 @@ header {
     margin-left: 25px;
 }
 
+#document-title > a {
+    color: black;
+    text-decoration: none;
+}
+
 #wrap-content {
     display: flex;
     height: calc(100% - 90px);
