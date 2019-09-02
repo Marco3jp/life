@@ -17,9 +17,9 @@ li {
     line-height: 1.5em;
 }
 
-header {
+#page-header {
     height: 90px;
-    padding: 8px 0;
+    padding: 8px 25px;
     display: flex;
     border-bottom: 1px solid rgba(66, 66, 66, 1);
 }
@@ -37,13 +37,27 @@ header {
     display: none;
 }
 
+#toggle-sidebar-label > img {
+    margin: 0.67em 0;
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
+}
+
 #document-title {
     margin-left: 25px;
+    flex-grow: 1;
 }
 
 #document-title > a {
     color: black;
     text-decoration: none;
+}
+
+#github-icon {
+    margin: 0.67em 0;
+    height: 55px;
+    width: 55px;
 }
 
 #wrap-content {
