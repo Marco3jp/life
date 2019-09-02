@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>document template</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="js/structure.js" as="script">
+</head>
+<body>
+<div id="wrap-page" class="not-indexed">
+    <input type="checkbox" id="toggle-sidebar-input" checked autocomplete="off">
+    <header id="page-header">
+        <label for="toggle-sidebar-input" id="toggle-sidebar-label"><img src="img/bars-solid.svg"
+                                                                         id="toggle-sidebar-icon"></label>
+        <h1 id="document-title"><a href="index.html">Life Document</a></h1>
+        <a href="https://github.com/Marco3jp/life"><img src="img/github-brands.svg" id="github-icon"></a>
+    </header>
+
+    <div id="wrap-content">
+        <aside id="index">
+        </aside>
+        <main id="content">
+            <h2>Life</h2>
+            <p>Lifeはコマンド式シミュレーションゲームのためのライブラリである。</p>
+            <nav>
+                <ol id="content-toc-list"></ol>
+            </nav>
+            <article>
+                <h3 id="core-function">主要な機能</h3>
+                <ul>
+                    <li>データ管理
+                        <ul>
+                            <li>アイテム</li>
+                            <li>イベント</li>
+                            <li>アクション(行動)</li>
+                            <li>ロケーション</li>
+                            <li>インベントリ</li>
+                            <li>様々な履歴</li>
+                            <li>ゲーム内時間</li>
+                        </ul>
+                    </li>
+                    <li>処理のインターフェイス
+                        <ul>
+                            <li>イベントの発生</li>
+                            <li>行動の実行</li>
+                            <li>アイテムの消費</li>
+                            <li>ロケーション間の移動</li>
+                        </ul>
+                    </li>
+                    <li>ゲーム制作のためのデータ形式
+                        <ul>
+                            <li>Functionを各データ内に持つことで制作の自由度を確保
+                                <ul>
+                                    <li>require(要求条件)</li>
+                                    <li>effect(結果の処理)</li>
+                                </ul>
+                            </li>
+                            <li>TypeScriptによるModelの提供</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+
+        </main>
+    </div>
+</div>
+<template id="index-item-template">
+    <li class="index-item"></li>
+</template>
+<template id="content-toc-item-template">
+    <li class="content-toc-item"><a></a></li>
+</template>
+<template id="content-article-block-template">
+    <article>
+        <h3></h3>
+        <ul></ul>
+    </article>
+</template>
+<script src="./js/tocGenerator.js" type="module"></script>
+<script src="./js/indexGenerator.js" type="module"></script>
+</body>
+</html>

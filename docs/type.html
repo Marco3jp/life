@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>document template</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="js/structure.js" as="script">
+</head>
+<body>
+<div id="wrap-page" class="not-indexed">
+    <input type="checkbox" id="toggle-sidebar-input" checked autocomplete="off">
+    <header id="page-header">
+        <label for="toggle-sidebar-input" id="toggle-sidebar-label"><img src="img/bars-solid.svg"
+                                                                         id="toggle-sidebar-icon"></label>
+        <h1 id="document-title"><a href="index.html">Life Document</a></h1>
+        <a href="https://github.com/Marco3jp/life"><img src="img/github-brands.svg" id="github-icon"></a>
+    </header>
+
+    <div id="wrap-content">
+        <aside id="index">
+        </aside>
+        <main id="content">
+            <h2>型</h2>
+            <p>型名は全て大文字始まりである。Classが重複していても型名は <code>_</code>をPrefixとしてしない場合がある(例:
+                <code>_location</code>と<code>Location</code>)ので注意。</p>
+            <nav>
+                <ol id="content-toc-list"></ol>
+            </nav>
+            <article>
+                <h3 id="action">Action</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="event">Event</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="item">Item</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="script">Script</h3>
+                <ul></ul>
+            </article>
+            <hr>
+            <article>
+                <h3 id="location">Location</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="coordinate">Coordinate</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="area">Area</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="locationHeight">LocationHeight</h3>
+                <ul></ul>
+            </article>
+            <hr>
+            <article>
+                <h3 id="option">Option</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="resourceList">ResourceList</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="handlerDefineder">HandlerDefineder</h3>
+                <ul></ul>
+            </article>
+            <article>
+                <h3 id="inventoryRecord">InventoryRecord</h3>
+                <ul></ul>
+            </article>
+
+        </main>
+    </div>
+</div>
+<template id="index-item-template">
+    <li class="index-item"></li>
+</template>
+<template id="content-toc-item-template">
+    <li class="content-toc-item"><a></a></li>
+</template>
+<script src="./js/tocGenerator.js" type="module"></script>
+<script src="./js/indexGenerator.js" type="module"></script>
+</body>
+</html>
