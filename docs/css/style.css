@@ -29,11 +29,11 @@ li {
     overflow: hidden;
 }
 
-#toggle-sidebar {
+#toggle-sidebar-input {
     display: none;
 }
 
-#toggle-sidebar-label {
+.not-indexed #toggle-sidebar-label {
     display: none;
 }
 
@@ -65,16 +65,17 @@ li {
     height: calc(100% - 90px);
 }
 
-#index {
-    padding-top: 20px;
+.not-indexed #index, #toggle-sidebar-input:not(:checked) ~ #wrap-content > #index {
     width: 0;
-    overflow: auto;
-    transition: width .5s ease-in-out;
+    border-right: none;
 }
 
-#index.indexed {
+#index {
+    padding-top: 20px;
     width: 200px;
     border-right: 1px solid rgba(66, 66, 66, 1);
+    overflow: auto;
+    transition: width .5s ease-in-out;
 }
 
 #index li, #index h2, #index h3 {
