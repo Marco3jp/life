@@ -3,7 +3,7 @@ import _Location from "./module/location";
 import Action from "./module/action";
 import _Event from "./module/event";
 import {Option} from "./model/option";
-import {ResourceURIList} from "./model/resourceList";
+import {ResourceURIList} from "./model/resourceURIList";
 import Params from "./module/params";
 import Inventory from "./module/state/inventory";
 import State from "./module/state";

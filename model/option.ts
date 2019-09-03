@@ -1,4 +1,4 @@
-import {ResourceURIList} from "./resourceList";
+import {ResourceURIList} from "./resourceURIList";
 import Setting from "../module/setting";
 
 export interface Option {
