@@ -1,10 +1,10 @@
 export interface Area {
     x: number
     y: number
-    z?: number | locationHeight
+    z?: number | LocationHeight
 }
 
-interface locationHeight {
+export interface LocationHeight {
     positive: number,
     negative?: number
 }
