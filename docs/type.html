@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>document template</title>
+    <title>Type | Life</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="js/structure.js" as="script">
@@ -24,60 +24,197 @@
             <h2>型</h2>
             <p>型名は全て大文字始まりである。Classが重複していても型名は <code>_</code>をPrefixとしてしない場合がある(例:
                 <code>_location</code>と<code>Location</code>)ので注意。</p>
+            <p><code>?</code>で始まる型はundefinedable、<code>|</code>で併記されているものはどちらかを示す。</p>
             <nav>
                 <ol id="content-toc-list"></ol>
             </nav>
             <article>
                 <h3 id="action">Action</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} id</li>
+                            <li>{string} name</li>
+                            <li>{Function} <a href="ecosystem.html#require">require</a></li>
+                            <li>{string} requireText</li>
+                            <li>{Function} <a href="ecosystem.html#effect">effect</a></li>
+                            <li>{string} effectText</li>
+                            <li>{?<a href="#script">Script</a>} script</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="event">Event</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} id</li>
+                            <li>{string} name</li>
+                            <li>{Function} <a href="ecosystem.html#require">require</a></li>
+                            <li>{string} requireText</li>
+                            <li>{Function} <a href="ecosystem.html#effect">effect</a></li>
+                            <li>{string} effectText</li>
+                            <li>{?number} weight
+                                <ul>
+                                    <li>イベントの発生する重み</li>
+                                    <li>複数のイベントが発生するとき、この値によってソートされる</li>
+                                    <li>デフォルト値は0</li>
+                                </ul>
+                            </li>
+                            <li>{?<a href="#script">Script</a>} script</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="item">Item</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} id</li>
+                            <li>{string} name</li>
+                            <li>{Function} <a href="ecosystem.html#require">require</a></li>
+                            <li>{string} requireText</li>
+                            <li>{Function} <a href="ecosystem.html#effect">effect</a></li>
+                            <li>{string} effectText</li>
+                            <li>{?<a href="#script">Script</a>} script</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="script">Script</h3>
-                <ul></ul>
+                <p class="warning"><strong>この型は特に仕様が確定していません。</strong>他のプロパティで参照されている箇所もありますが、変更の可能性があることを十分に気をつけてください。
+                </p>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{?object} texts</li>
+                            <li>{?object} operations</li>
+                            <li>{?<a href="#viewScript">ViewScript</a>} <a
+                                    href="ecosystem.html#viewScript">viewScript</a></li>
+                            <li>{?Function} createViewScript</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <hr>
             <article>
                 <h3 id="location">Location</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} id</li>
+                            <li>{string} name</li>
+                            <li>{Function} <a href="ecosystem.html#require">require</a></li>
+                            <li>{string} requireText</li>
+                            <li>{<a href="#coordinate">coordinate</a>} coordinate</li>
+                            <li>{<a href="#area">Area</a>} area</li>
+                            <li>{?<a href="#script">Script</a>} script</li>
+                            <li>{?Array&lt;<a href="#location">Location</a>&gt;} childLocation</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="coordinate">Coordinate</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} x</li>
+                            <li>{number} y</li>
+                            <li>{?number} z</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="area">Area</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} x</li>
+                            <li>{number} y</li>
+                            <li>{?(number | <a href="#locationHeight">LocationHeight</a>)} z</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="locationHeight">LocationHeight</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{number} positive</li>
+                            <li>{?number} negative</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <hr>
             <article>
                 <h3 id="option">Option</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{?string} version</li>
+                            <li>{?string} resourceVersion</li>
+                            <li>{?ResourceURIList} resourceList</li>
+                            <li>{?<a href="#" class="vagueness-existence"
+                                     title="インターフェイスを定義せずに直接Classを参照しているため、ドキュメント化が保留になっています">Setting</a>} gameSetting
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
-                <h3 id="resourceList">ResourceList</h3>
-                <ul></ul>
+                <h3 id="resourceURIList">ResourceURIList</h3>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{?Array&lt;string&gt;} actionURIList</li>
+                            <li>{?Array&lt;string&gt;} characterURIList</li>
+                            <li>{?Array&lt;string&gt;} eventURIList</li>
+                            <li>{?Array&lt;string&gt;} itemURIList</li>
+                            <li>{?Array&lt;string&gt;} locationURIList</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="handlerDefineder">HandlerDefineder</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{string} key</li>
+                            <li>{?Function} validator</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
             <article>
                 <h3 id="inventoryRecord">InventoryRecord</h3>
-                <ul></ul>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                            <li>{<a href="#item">Item</a>} item</li>
+                            <li>{number} number</li>
+                        </ul>
+                    </li>
+                </ul>
             </article>
-
+            <article>
+                <h3 id="viewScript">ViewScript</h3>
+                <p class="warning"><strong>この型は一切仕様が確定していません。</strong>他のプロパティで参照されている箇所もありますが、変更の可能性があることを十分に気をつけてください。
+                </p>
+                <ul>
+                    <li>プロパティ
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
         </main>
     </div>
 </div>
