@@ -1,13 +1,17 @@
 export let structure = [
     {
         name: "Life",
-        path: "life",
+        path: "",
         header: true,
         isNotPage: true,
         child: [
-            {
+            /*{
                 name: "概要",
                 fileName: "overview.html"
+            },*/
+            {
+                name: "エコシステム",
+                fileName: "ecosystem.html"
             },
         ]
     },
@@ -16,5 +20,16 @@ export let structure = [
         fileName: "type.html",
         header: true,
         isNotPage: false,
-    }
+    },
+    {
+        name: "仕様以外",
+        path: "",
+        header: true,
+        isNotPage: true,
+        child: [{
+            name: "今後の方針など",
+            fileName: "todo.html"
+        }]
+    },
+
 ];
