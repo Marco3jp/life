@@ -6,6 +6,7 @@ import LifeStatus from "./state/lifeStatus";
 import {defaultLifeStatus} from "./state/default/lifeStatus";
 import {defaultAbilityStatus} from "./state/default/abilityStatus";
 import Params from "./params";
+import Values from "./state/values";
 
 export default class State {
     abilityStatus: AbilityStatus;
@@ -13,6 +14,7 @@ export default class State {
     history: History;
     inventory: Inventory;
     lifeStatus: LifeStatus;
+    values: Values;
 
     constructor(params: Params) {
         this.abilityStatus = new AbilityStatus(defaultAbilityStatus);
@@ -20,5 +22,6 @@ export default class State {
         this.inventory = new Inventory(params);
         this.flag = new Flag();
         this.history = new History();
+        this.values = new Values([]);
     }
 }
