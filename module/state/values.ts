@@ -1,8 +1,8 @@
-import {HandleDefineder} from "../../model/handleDefineder";
+import {HandleDefiner} from "../../model/handleDefiner";
 import {generateLocalStorageHandler} from "../util/localStorageHandlerGenerator";
 
 export default class Values {
-    constructor(valueList: Array<HandleDefineder>) {
+    constructor(valueList: Array<HandleDefiner>) {
         const prefix = "life_value_";
         return new Proxy({}, generateLocalStorageHandler(prefix, valueList));
     }

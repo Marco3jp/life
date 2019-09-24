@@ -1,6 +1,6 @@
-import {HandleDefineder} from "../../../model/handleDefineder";
+import {HandleDefiner} from "../../../model/handleDefiner";
 
-export let defaultAbilityStatus: Array<HandleDefineder> = [{
+export let defaultAbilityStatus: Array<HandleDefiner> = [{
     key: "strength",
 }, {
     key: "intelligent",

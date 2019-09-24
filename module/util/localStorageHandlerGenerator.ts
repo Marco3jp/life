@@ -1,7 +1,7 @@
-import {HandleDefineder} from "../../model/handleDefineder";
+import {HandleDefiner} from "../../model/handleDefiner";
 
 // TODO: 元のオブジェクトに値をセットできるように、get, setでdefinesに一致しなかった場合に元のオブジェクトを操作するように修正する
-export function generateLocalStorageHandler(prefix, defines: Array<HandleDefineder>): ProxyHandler<any> {
+export function generateLocalStorageHandler(prefix, defines: Array<HandleDefiner>): ProxyHandler<any> {
     return {
         get: (target, name): string | undefined => {
             if (defines.some(define => {
