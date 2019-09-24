@@ -23,9 +23,9 @@ export default class Life {
         this.location = new _Location(params);
         this.action = new Action(params);
         this.event = new _Event(params);
-        this.state = new State(params);
 
         if (typeof option !== "undefined") {
+            this.state = new State(params, option.definerURI);
             Life.storeOptions(option);
             if (typeof option.resourceList !== "undefined") {
                 this.loadResources(option.resourceList);
@@ -33,6 +33,7 @@ export default class Life {
 
             Life.storeSettings(new Setting(option.gameSetting));
         } else {
+            this.state = new State(params);
             Life.storeSettings(new Setting());
         }
     }
