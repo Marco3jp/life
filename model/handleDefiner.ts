@@ -1,4 +1,4 @@
-export interface HandleDefineder {
+export interface HandleDefiner {
     key: string,
     validator?: Function,
 }
