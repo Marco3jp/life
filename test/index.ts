@@ -1,3 +1,3 @@
-import {GameDateCalculateProgressLengthTest} from "./testDateStringToNumber";
+import {testCalculateProgressLength} from "./testCalculateProgressLength";
 
-GameDateCalculateProgressLengthTest();
+testCalculateProgressLength();

@@ -2,7 +2,7 @@ import GameDate from "../module/gameDate"
 
 var assert = require('assert');
 
-export function GameDateCalculateProgressLengthTest() {
+export function testCalculateProgressLength() {
     describe("# GameDate", () => {
         describe("## calculateProgressLength()", () => {
             it("秒のみ", () => {
@@ -28,5 +28,4 @@ export function GameDateCalculateProgressLengthTest() {
             });
         })
     });
-
 }
