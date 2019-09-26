@@ -26,7 +26,6 @@ export default class _Location {
                 this.locationDb.setItem(location.id.toString(), location);
             })
         })
-
     }
 
     getCurrentLocation(): LocationModel {
