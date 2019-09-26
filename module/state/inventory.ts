@@ -6,8 +6,12 @@ import {parseJsonFunction} from "../util/parseJsonFunction";
 import {stringifyFunction} from "../util/stringifyFunction";
 
 // TODO: こいつ自身にItemを持たせず、paramsを必要としないように修正する
+// TODO: 持ってる個数を確認するメソッドの用意
+// TODO: useではなく個数を減らすだけのメソッドを用意(主にeventやactionの消化用)
+// TODO: 引数をItemModelではなくてidにする
 export default class Inventory {
     inventory: Array<InventoryRecord>;
+    inventoryReference: Map<number, InventoryRecord>;
     params: Params;
 
     constructor(params: Params) {
@@ -15,6 +19,9 @@ export default class Inventory {
         this.params = params;
         if (saveData !== null) {
             this.inventory = JSON.parse(saveData, parseJsonFunction);
+            this.inventory.forEach(inventoryRecord =>{
+                this.inventoryReference.set(inventoryRecord.item.id, inventoryRecord);
+            })
         } else {
             this.inventory = [];
         }
@@ -31,7 +38,8 @@ export default class Inventory {
                 this.inventory[index].number++;
             }
         } else {
-            this.inventory.push({item: item, number: typeof number !== "undefined" ? number : 1});
+            const index = this.inventory.push({item: item, number: typeof number !== "undefined" ? number : 1});
+            this.inventoryReference.set(this.inventory[index].item.id, this.inventory[index]);
         }
 
         this.saveInventory();
