@@ -49,6 +49,15 @@ export default class Inventory {
         return this.inventory;
     }
 
+    getNumberOfItem(id: number): number {
+        let inventoryRecord = this.inventoryReference.get(id);
+        if (typeof inventoryRecord !== "undefined") {
+            return inventoryRecord.number;
+        } else {
+            return 0;
+        }
+    }
+
     use(item: ItemModel): ViewScript {
         const index = this.inventory.findIndex((inventoryRecord: InventoryRecord) => {
             return inventoryRecord.item.id === item.id;
