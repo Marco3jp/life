@@ -10,6 +10,7 @@ import Values from "./state/values";
 import {DefinerURIs} from "../model/definerURIs";
 import {parseJsonFunction} from "./util/parseJsonFunction";
 import {HandleDefiner} from "../model/handleDefiner";
+import GameDate from "./gameDate";
 
 export default class State {
     abilityStatus: AbilityStatus;
@@ -18,12 +19,14 @@ export default class State {
     inventory: Inventory;
     lifeStatus: LifeStatus;
     values: Values;
+    gameDate: GameDate;
 
     constructor(params: Params, definerURI?: DefinerURIs) {
         this.initDefiner(definerURI);
         this.inventory = new Inventory(params);
         this.flag = new Flag();
         this.history = new History();
+        this.gameDate = new GameDate();
     }
 
     initDefiner(definerURI) {
