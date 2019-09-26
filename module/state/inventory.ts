@@ -73,6 +73,15 @@ export default class Inventory {
         }
     }
 
+    spendItem(id: number, number: number): boolean {
+        let inventoryRecord = this.inventoryReference.get(id);
+        if (typeof inventoryRecord !== "undefined" && inventoryRecord.number >= number) {
+            inventoryRecord.number -= number;
+            return true;
+        }
+        return false;
+    }
+
     private saveInventory() {
         localStorage.setItem("life_inventory", JSON.stringify(this.inventory, stringifyFunction));
     }
