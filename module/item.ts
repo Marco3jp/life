@@ -11,15 +11,23 @@ export default class Item {
         })
     }
 
-    load(url: string) {
-        fetch(url).then((response) => {
+    load(url: string): Promise<boolean> {
+        return fetch(url).then((response) => {
             return response.text()
         }).then(raw => {
             return JSON.parse(raw, parseJsonFunction)
         }).then(result => {
-            result.items.foreach((item: ItemModel) => {
-                this.itemDb.setItem(item.id.toString(), item)
-            })
+            result.items.forEach((item: ItemModel) => {
+                this.itemDb.setItem(item.id.toString(), item).then(r => {
+                    console.log(r);
+                }).catch(e => {
+                    console.error(e);
+                })
+            });
+            return true;
+        }).catch(e => {
+            console.error(e);
+            return false;
         })
     }
 
