@@ -32,10 +32,14 @@ export default class Item {
         })
     }
 
-    getItemInfo(id): Promise<ItemModel | undefined> {
-        return this.itemDb.iterate((item: ItemModel) => {
-            if (item.id === id) {
-                return item;
+    getItemInfo(id: number): Promise<ItemModel | undefined> {
+        return this.itemDb.iterate((item: string, key: string) => {
+            if (key === id.toString()) {
+                if (typeof item !== "undefined") {
+                    return JSON.parse(item, parseJsonFunction);
+                } else {
+                    return undefined;
+                }
             }
         })
     }
