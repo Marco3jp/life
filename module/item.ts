@@ -1,6 +1,7 @@
 import localForage from "localforage";
 import {Item as ItemModel} from "../model/item"
 import {parseJsonFunction} from "./util/parseJsonFunction";
+import {stringifyFunction} from "./util/stringifyFunction";
 
 export default class Item {
     private itemDb: LocalForage;
@@ -18,7 +19,7 @@ export default class Item {
             return JSON.parse(raw, parseJsonFunction)
         }).then(result => {
             result.items.forEach((item: ItemModel) => {
-                this.itemDb.setItem(item.id.toString(), item).then(r => {
+                this.itemDb.setItem(item.id.toString(), JSON.stringify(item, stringifyFunction)).then(r => {
                     console.log(r);
                 }).catch(e => {
                     console.error(e);
