@@ -16,6 +16,11 @@ module.exports = () => {
             minimizer: [new TerserPlugin({
                 cache: true,
                 parallel: true,
+                terserOptions: {
+                    compress: {
+                        drop_console: true,
+                    }
+                }
             })],
         },
         module: {
