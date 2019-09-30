@@ -46,4 +46,26 @@ exports.items = [{
         params.state.values.text = "hello world";
     },
     effectText: "",
+}, {
+    id: 6,
+    name: "飛び地",
+    require: (params) => {
+        return true;
+    },
+    requireText: "",
+    effect: (params) => {
+        params.state.lifeStatus.health += 30;
+    },
+    effectText: "",
+}, {
+    id: 7,
+    name: "動作確認",
+    require: () => {
+        return "確認";
+    },
+    requireText: "",
+    effect: (text) => {
+        return text;
+    },
+    effectText: "",
 }];
