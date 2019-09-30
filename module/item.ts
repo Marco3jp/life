@@ -20,7 +20,7 @@ export default class Item {
         }).then(result => {
             result.items.forEach((item: ItemModel) => {
                 this.itemDb.setItem(item.id.toString(), JSON.stringify(item, stringifyFunction)).then(r => {
-                    console.log(r);
+                    // console.log(r);
                 }).catch(e => {
                     console.error(e);
                 })
