@@ -13,6 +13,10 @@ export let structure = [
                 name: "エコシステム",
                 fileName: "ecosystem.html"
             },
+            {
+                name: "テスト",
+                fileName: "test/index.html"
+            }
         ]
     },
     {
