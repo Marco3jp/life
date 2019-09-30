@@ -3,17 +3,17 @@ import {HandleDefiner} from "../../model/handleDefiner";
 // TODO: 元のオブジェクトに値をセットできるように、get, setでdefinesに一致しなかった場合に元のオブジェクトを操作するように修正する
 export function generateLocalStorageHandler(prefix, defines: Array<HandleDefiner>): ProxyHandler<any> {
     return {
-        get: (target, name): string | undefined => {
+        get: (target, key): string | undefined => {
             if (defines.some(define => {
-                return define.key === name
+                return define.key === key
             })) {
-                const value = localStorage.getItem(prefix + name.toString());
+                const value = localStorage.getItem(prefix + key.toString());
                 return value !== null ? value : undefined;
             }
         },
-        set: (obj, prop, value: string) => {
+        set: (obj, key, value: string) => {
             const index = defines.findIndex(define => {
-                return define.key === name
+                return define.key === key
             });
             if (index !== -1) {
                 if (typeof defines[index].validator !== "undefined") {
