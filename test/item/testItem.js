@@ -1,5 +1,6 @@
 import Item from "../../module/item";
 import {testLoad} from "./testLoad";
+import {testGetItemInfo} from "./testGetItemInfo";
 
 var assert = require('assert');
 
@@ -10,5 +11,6 @@ export function testItem() {
             assert.ok(true);
         });
         testLoad();
+        testGetItemInfo();
     });
 }
