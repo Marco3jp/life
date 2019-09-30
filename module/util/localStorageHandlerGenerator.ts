@@ -21,7 +21,7 @@ export function generateLocalStorageHandler(prefix, defines: Array<HandleDefiner
                     value = defines[index].validator(value);
                 }
                 try {
-                    localStorage.setItem(prop.toString(), value);
+                    localStorage.setItem(prefix + key.toString(), value);
                 } catch (e) {
                     // safari in private mode or storage is full.
                     return false;
