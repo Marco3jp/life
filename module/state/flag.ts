@@ -6,6 +6,9 @@ export default class Flag {
     }
 
     setFlag(key: string, value: boolean) {
+        if (typeof value !== "boolean") {
+            throw new TypeError();
+        }
         this.flagStore[key] = value;
         this.saveFlags();
     }
