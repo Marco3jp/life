@@ -1,6 +1,5 @@
 import GameDate from "../../../module/gameDate"
-
-var assert = require('assert');
+import assert from 'assert';
 
 export function testCalculateProgressLength() {
     describe("### calculateProgressLength()", () => {

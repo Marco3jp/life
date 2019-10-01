@@ -2,7 +2,7 @@ import Item from "../../module/item";
 import {testLoad} from "./testLoad";
 import {testGetItemInfo} from "./testGetItemInfo";
 
-var assert = require('assert');
+import assert from 'assert';
 
 export function testItem() {
     describe("# Item", () => {
