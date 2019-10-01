@@ -7,6 +7,8 @@ import {stringifyFunction} from "../util/stringifyFunction";
 
 // TODO: 次第に肥大化していくので設計レベルの問題がありそう
 //  特にいちいちJSON.Stringifyしてるあたりがネックになる可能性がある
+//  一定間隔でページングみたいな形で管理するのがいいのかな……という感じ。
+//  localStorageに置く予定のMeta系にHistoryの管理データを置いてもいいかと思う。
 export default class History {
     actionHistory: Array<Action>;
     eventHistory: Array<Event>;
