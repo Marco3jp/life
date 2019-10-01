@@ -11,7 +11,7 @@ export function generateLocalStorageHandler(prefix, defines: Array<HandleDefiner
                 return value !== null ? value : undefined;
             }
         },
-        set: (obj, key, value: string) => {
+        set: (obj, key, value: any) => {
             const index = defines.findIndex(define => {
                 return define.key === key
             });
@@ -19,6 +19,8 @@ export function generateLocalStorageHandler(prefix, defines: Array<HandleDefiner
                 if (typeof defines[index].validator !== "undefined") {
                     // @ts-ignore, checked undefined.
                     value = defines[index].validator(value);
+                } else if (typeof value !== "string") {
+                    value = value.toString();
                 }
                 try {
                     localStorage.setItem(prefix + key.toString(), value);
