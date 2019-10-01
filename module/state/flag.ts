@@ -14,9 +14,13 @@ export default class Flag {
     }
 
     removeFlag(key: string): boolean {
-        const result = delete this.flagStore[key];
-        this.saveFlags();
-        return result
+        if (typeof this.flagStore[key] !== "undefined") {
+            const result = delete this.flagStore[key];
+            this.saveFlags();
+            return result
+        } else {
+            return false;
+        }
     }
 
     getFlag(key: string): boolean | undefined {
