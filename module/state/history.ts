@@ -40,13 +40,13 @@ export default class History {
         switch (key) {
             case HistoryEnum.LOCATION:
                 history = this.locationHistory;
-                return;
+                break;
             case HistoryEnum.EVENT:
                 history = this.eventHistory;
-                return;
+                break;
             case HistoryEnum.ACTION:
                 history = this.actionHistory;
-                return;
+                break;
         }
 
         localStorage.setItem(this.getStorageKey(key), JSON.stringify(history, stringifyFunction));
@@ -78,15 +78,14 @@ export default class History {
         switch (key) {
             case HistoryEnum.ACTION:
                 this.actionHistory.push(<Action>state);
-                return;
+                break;
             case HistoryEnum.EVENT:
                 this.eventHistory.push(<Event>state);
-                return;
+                break;
             case HistoryEnum.LOCATION:
                 this.locationHistory.push(<Location>state);
-                return;
+                break;
         }
-
         this.saveHistory(key);
     }
 }
