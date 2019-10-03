@@ -1,6 +1,7 @@
 import assert from 'assert';
 import History from "../../../module/state/history";
 import {testPushAndGet} from "./testPushAndGet";
+import {testLoadHistory} from "./testLoad";
 
 export function testHistory() {
     describe("## History", () => {
@@ -9,5 +10,6 @@ export function testHistory() {
             assert.ok(true);
         });
         testPushAndGet();
+        testLoadHistory();
     });
 }
