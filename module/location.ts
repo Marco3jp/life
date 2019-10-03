@@ -9,11 +9,10 @@ export default class _Location {
     private locationDb: LocalForage;
     private params: Params;
 
-    constructor(params: Params) {
+    constructor() {
         this.locationDb = localForage.createInstance({
             name: "location"
         });
-        this.params = params;
     }
 
     load(url: string) {
@@ -26,6 +25,10 @@ export default class _Location {
                 this.locationDb.setItem(location.id.toString(), location);
             })
         })
+    }
+
+    setParams(params: Params) {
+        this.params = params;
     }
 
     getCurrentLocation(): LocationModel {

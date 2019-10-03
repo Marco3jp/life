@@ -8,11 +8,10 @@ export default class Action {
     private actionDb: LocalForage;
     private params: Params;
 
-    constructor(params: Params) {
+    constructor() {
         this.actionDb = localForage.createInstance({
             name: "action"
         });
-        this.params = params;
     }
 
     load(url: string) {
@@ -25,6 +24,10 @@ export default class Action {
                 this.actionDb.setItem(action.id.toString(), action)
             })
         })
+    }
+
+    setParams(params: Params) {
+        this.params = params;
     }
 
     getFeasibleActions(): Promise<Array<ActionModel>> {

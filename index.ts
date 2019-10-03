@@ -15,16 +15,10 @@ export default class Life {
     event: _Event;
     state: State;
 
+    // TODO: OptionsとSettingsがわかりにくいので綺麗にまとめる
     constructor(option?: Option) {
-        const params = new Params(this);
-
-        this.item = new Item();
-        this.location = new _Location(params);
-        this.action = new Action(params);
-        this.event = new _Event(params);
-
         if (typeof option !== "undefined") {
-            this.state = new State(params, option.definerURI);
+            this.state = new State(option.definerURI);
             Life.storeOptions(option);
             if (typeof option.resourceList !== "undefined") {
                 this.loadResources(option.resourceList);
@@ -32,9 +26,17 @@ export default class Life {
 
             Life.storeSettings(new Setting(option.gameSetting));
         } else {
-            this.state = new State(params);
+            this.state = new State();
             Life.storeSettings(new Setting());
         }
+
+        this.item = new Item();
+        this.location = new _Location();
+        this.action = new Action();
+        this.event = new _Event();
+
+        const params = new Params(this);
+        this.setParams(params);
     }
 
     /**
@@ -80,5 +82,12 @@ export default class Life {
                 this.event.load(eventURI);
             })
         }
+    }
+
+    setParams(params: Params) {
+        this.event.setParams(params);
+        this.action.setParams(params);
+        this.location.setParams(params);
+        this.state.setParams(params);
     }
 }

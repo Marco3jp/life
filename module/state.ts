@@ -21,12 +21,16 @@ export default class State {
     values: Values;
     gameDate: GameDate;
 
-    constructor(params: Params, definerURI?: DefinerURIs) {
+    constructor(definerURI?: DefinerURIs) {
         this.initDefiner(definerURI);
-        this.inventory = new Inventory(params);
+        this.inventory = new Inventory();
         this.flag = new Flag();
         this.history = new History();
         this.gameDate = new GameDate();
+    }
+
+    setParams(params: Params) {
+        this.inventory.setParams(params);
     }
 
     initDefiner(definerURI) {

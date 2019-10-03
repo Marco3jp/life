@@ -11,11 +11,10 @@ export default class _Event {
     private cacheTime: number;
     params: Params;
 
-    constructor(params) {
+    constructor() {
         this.eventDb = localForage.createInstance({
             name: "event"
         });
-        this.params = params;
     }
 
     load(url: string) {
@@ -28,6 +27,10 @@ export default class _Event {
                 this.eventDb.setItem(event.id.toString(), event)
             })
         })
+    }
+
+    setParams(params: Params) {
+        this.params = params;
     }
 
     isEventing(): Promise<boolean> {

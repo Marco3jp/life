@@ -12,9 +12,8 @@ export default class Inventory {
     inventoryReference: Map<number, InventoryRecord>;
     params: Params;
 
-    constructor(params: Params) {
+    constructor() {
         const saveData = localStorage.getItem("life_inventory");
-        this.params = params;
         if (saveData !== null) {
             this.inventory = JSON.parse(saveData, parseJsonFunction);
             this.inventory.forEach(inventoryRecord => {
@@ -23,6 +22,10 @@ export default class Inventory {
         } else {
             this.inventory = [];
         }
+    }
+
+    setParams(params: Params) {
+        this.params = params;
     }
 
     addItem(item: ItemModel, number?: number) {
