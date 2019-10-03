@@ -12,6 +12,5 @@ testLocation();
 testState();
 
 function init() {
-    const testNumber = localStorage.getItem("testNumber");
-    localStorage.setItem("testNumber", testNumber === null ? "1" : (parseInt(testNumber) + 1).toString());
+    localStorage.clear();
 }
