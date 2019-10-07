@@ -50,8 +50,10 @@ export default class _Event {
                     return 0;
                 } else if (a.weight > b.weight) {
                     return 1;
-                } else {
+                } else if (a.weight > b.weight) {
                     return -1;
+                } else {
+                    throw new Error("")
                 }
             }));
             this.cacheTime = Date.now();
