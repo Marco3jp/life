@@ -63,7 +63,7 @@ export default class _Event {
     proceedCurrentlyEvent(force?: boolean): Array<ViewScript> {
         let result: Array<viewScript> = [];
 
-        if (this.cacheTime > 10000 && (typeof force === "undefined" || !force)) {
+        if (this.cacheTime - Date.now() > 10000 && (typeof force === "undefined" || !force)) {
             this.isEventing().then(r => {
                 if (r) this.proceedCurrentlyEvent(true);
             });
