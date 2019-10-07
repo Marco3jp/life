@@ -3,7 +3,6 @@ import {Event as EventModel} from "../model/event";
 import {parseJsonFunction} from "./util/parseJsonFunction";
 import Params from "./params";
 import ViewScript from "../model/viewScript";
-import viewScript from "../model/viewScript";
 
 export default class _Event {
     private eventDb: LocalForage;
@@ -61,7 +60,7 @@ export default class _Event {
     }
 
     proceedCurrentlyEvent(force?: boolean): Array<ViewScript> {
-        let result: Array<viewScript> = [];
+        let result: Array<ViewScript> = [];
 
         if (this.cacheTime - Date.now() > 10000 && (typeof force === "undefined" || !force)) {
             this.isEventing().then(r => {
