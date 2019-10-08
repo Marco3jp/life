@@ -61,11 +61,10 @@ exports.items = [{
     id: 7,
     name: "動作確認",
     require: () => {
-        return "確認";
+        return true;
     },
     requireText: "",
-    effect: (text) => {
-        return text;
+    effect: (params) => {
     },
     effectText: "",
 }];
