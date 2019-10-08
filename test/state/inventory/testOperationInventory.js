@@ -8,7 +8,6 @@ export function testOperationInventory() {
             assert.deepEqual(window.inventory.getMyInventory(), []);
         });
         it("SampleItemを追加", () => {
-            console.log(itemData[5]);
             window.inventory.addItem(itemData[5]);
             assert.ok(true);
         });
