@@ -1,5 +1,6 @@
 import assert from "assert"
 import {itemData} from "../../testResources/forImportStyle/itemData"
+import Inventory from "../../../module/state/inventory";
 
 export function testOperationInventory() {
     describe("### OperationInventory", () => {
@@ -26,6 +27,13 @@ export function testOperationInventory() {
         });
         it("SampleItemを2個消費", () => {
             assert.deepEqual(window.inventory.spendItem(7, 2), true);
+        });
+        it("ロードして件数、id、名前が一致しているかチェック", (done) => {
+            let testInventory = new Inventory();
+            assert.deepEqual(testInventory.getMyInventory()[0].number, 2);
+            assert.deepEqual(testInventory.getMyInventory()[0].item.id, 7);
+            assert.deepEqual(testInventory.getMyInventory()[0].item.name, "動作確認");
+            done();
         });
         it("SampleItemの数を取得して、0と一致しているかチェック", () => {
             assert.deepEqual(window.inventory.getNumberOfItem(7), 0);
