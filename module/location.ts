@@ -39,16 +39,16 @@ export default class _Location {
      * 移動可能なロケーションを返す
      * 移動可能な場所がない場合空のArrayを返すので、エラーチェックしないと正しく動いてしまって詰んでしまうので注意。
      */
-    getMovableLocations(): Array<LocationModel> {
+    getMovableLocations(): Promise<Array<LocationModel>> {
         let result: Array<LocationModel> = [];
 
-        this.locationDb.iterate((location: LocationModel) => {
+        return this.locationDb.iterate((location: LocationModel) => {
             if (location.require(this.params)) {
                 result.push(location);
             }
+        }).then(() => {
+            return result
         });
-
-        return result
     }
 
     move(location: LocationModel): viewScript {
