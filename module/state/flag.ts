@@ -28,7 +28,7 @@ export default class Flag {
     }
 
     private getStorageKey() {
-        return "life_flags";
+        return "flags";
     }
 
     private loadFlags() {

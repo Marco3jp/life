@@ -4,7 +4,7 @@ import {HandleDefiner} from "../../model/handleDefiner";
 export default class AbilityStatus {
 
     constructor(abilityStatusList: Array<HandleDefiner>) {
-        const prefix = "life_abilityStatus_";
+        const prefix = "abilityStatus_";
         return new Proxy({}, generateLocalStorageHandler(prefix, abilityStatusList));
     }
 }
