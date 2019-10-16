@@ -63,7 +63,7 @@ export default class GameDate {
     }
 
     private storeDate() {
-        localStorage.setItem("life_gameDate", this.time.toString());
+        localStorage.setItem("gameDate", this.time.toString());
     }
 
     /**

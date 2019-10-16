@@ -21,7 +21,7 @@ export default class History {
     }
 
     private getStorageKey(key: HistoryEnum): string {
-        return "life_history_" + historyEnumToString(key)
+        return "history_" + historyEnumToString(key)
     }
 
     private loadHistory(key: HistoryEnum): Array<any> {

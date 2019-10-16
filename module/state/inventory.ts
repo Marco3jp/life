@@ -14,7 +14,7 @@ export default class Inventory {
 
     constructor() {
         this.inventoryIndex = new Map();
-        const saveData = localStorage.getItem("life_inventory");
+        const saveData = localStorage.getItem("inventory");
         if (saveData !== null) {
             this.inventory = JSON.parse(saveData, parseJsonFunction);
             this.inventory.forEach((inventoryRecord, index) => {
